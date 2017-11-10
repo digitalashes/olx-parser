@@ -1,0 +1,6 @@
+requests==2.18.4
+pyrebase==3.0.27
+envparse==0.2.0
+lxml==3.8.0
+beautifulsoup4==4.6.0
+fake-useragent==0.1.7
