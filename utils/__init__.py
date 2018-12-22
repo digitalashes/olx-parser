@@ -1,9 +1,22 @@
+from datetime import datetime
+from typing import NamedTuple, List
 from urllib.parse import urlencode
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 from urllib.parse import urlunparse
 
 from config import settings
+
+
+class Ad(NamedTuple):
+    id: int
+    title: str
+    price: int
+    is_fresh: bool
+    url: str
+    name: str = None
+    phones: List[str] = None
+    posted_at: datetime = None
 
 
 def build_url() -> str:
