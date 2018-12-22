@@ -1,20 +1,10 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals, absolute_import
+from environs import Env
 
-import os
-import warnings
-
-from envparse import env
-
-env_file_path = os.path.join(os.path.dirname(__file__), '.env')
-if not os.path.isfile(env_file_path):
-    warnings.warn('.env file not found. The application will be stopped.', ResourceWarning)
-    exit(1)
-
-env.read_envfile(env_file_path)
+env = Env()
+env.read_env()
 
 
-class config:
+class settings:
     DEFAULT_USER_AGENT = env.str('DEFAULT_USER_AGENT',
                                  default='Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/61.0.3163.91 Safari/537.36')
 
@@ -26,8 +16,8 @@ class config:
     SUB_SUB_CATEGORY = env.str('SUB_SUB_CATEGORY', default='dolgosrochnaya-arenda-kvartir')
     CITY = env.str('CITY', default='odessa')
     DISTRICT_ID = env.int('DISTRICT_ID', default=89)
-    MIN_PRICE = env.int('MIN_PRICE', default=1000)
-    MAX_PRICE = env.int('MAX_PRICE', default=5000)
+    MIN_PRICE = env.int('MIN_PRICE', default=7000)
+    MAX_PRICE = env.int('MAX_PRICE', default=10000)
     MIN_ROOMS = env.int('MIN_ROOMS', default=1)
     MAX_ROOMS = env.int('MAX_ROOMS', default=1)
     WITH_PHOTOS = int(env.bool('WITH_PHOTOS', default=True))
@@ -48,4 +38,6 @@ class config:
     TELEGRAM_BOT_KEY = env.str('TELEGRAM_BOT_KEY', default=None)
     TELEGRAM_CHAT_IDS = env.list('TELEGRAM_CHAT_IDS', default=[])
 
-    LOG_FILENAME = env.str('LOG_FILENAME', default='olx_parser_log')
+    LOGGER_NAME = env.str('LOG_FILENAME', default='olx_parser_log')
+    LOGGING_IN_STDOUT = env.bool('LOGGING_IN_STDOUT', default=True)
+    LOGGING_IN_FILE = env.bool('LOGGING_IN_FILE', default=False)
