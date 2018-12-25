@@ -4,3 +4,6 @@ venv/
 *.log
 *.gz
 __pycache__/
+*.db
+*.sqlite
+*.sqlite3
