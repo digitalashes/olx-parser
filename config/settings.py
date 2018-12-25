@@ -24,19 +24,11 @@ class settings:
     WITH_PROMOTED = env.bool('WITH_PROMOTED', default=False)
     PUBLICATION_DATE = [item.lower() for item in env.list('PUBLICATION_DATE', default=['сегодня', 'вчера'])]
 
-    USER_EMAIL = env.str('USER_EMAIL', default=None)
-    USER_PASSWORD = env.str('USER_PASSWORD', default=None)
-
-    DB_CONFIG = {
-        'apiKey': env.str('DB_API_KEY', default=''),
-        'authDomain': env.str('DB_AUTH_DOMAIN', default=''),
-        'databaseURL': env.str('DB_DATABASE_URL', default=''),
-        'storageBucket': env.str('DB_STORAGE_BUCKET', default=''),
-    }
-
     TELEGRAM_BOT_API_URL = env.str('TELEGRAM_BOT_API_URL', default='https://api.telegram.org/bot')
     TELEGRAM_BOT_KEY = env.str('TELEGRAM_BOT_KEY', default=None)
     TELEGRAM_CHAT_IDS = env.list('TELEGRAM_CHAT_IDS', default=[])
+
+    DB_NAME = 'olx_parser.db'
 
     LOGGER_NAME = env.str('LOG_FILENAME', default='olx_parser_log')
     LOGGING_IN_STDOUT = env.bool('LOGGING_IN_STDOUT', default=True)
