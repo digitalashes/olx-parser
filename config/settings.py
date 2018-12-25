@@ -21,7 +21,7 @@ class settings:
     MIN_ROOMS = env.int('MIN_ROOMS', default=1)
     MAX_ROOMS = env.int('MAX_ROOMS', default=1)
     WITH_PHOTOS = int(env.bool('WITH_PHOTOS', default=True))
-    WITH_PROMOTED = env.bool('WITH_PROMOTED', default=False)
+    WITH_PROMOTED = env.bool('WITH_PROMOTED', default=True)
     PUBLICATION_DATE = [item.lower() for item in env.list('PUBLICATION_DATE', default=['сегодня', 'вчера'])]
 
     TELEGRAM_BOT_API_URL = env.str('TELEGRAM_BOT_API_URL', default='https://api.telegram.org/bot')
