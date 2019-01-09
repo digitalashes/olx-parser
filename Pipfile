@@ -4,14 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
-requests = "*"
-environs = "*"
-lxml = "*"
 beautifulsoup4 = "*"
+environs = "*"
 fake-useragent = "*"
+lxml = "*"
 python-dateutil = "*"
+python-telegram-bot = "*"
+requests = "*"
 
 [requires]
 python_version = "3.7"

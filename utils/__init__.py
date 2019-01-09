@@ -3,7 +3,24 @@ from urllib.parse import urljoin
 from urllib.parse import urlparse
 from urllib.parse import urlunparse
 
+from dateutil import parser
+
 from config import settings
+
+
+class RussianParserInfo(parser.parserinfo):
+    MONTHS = [('янв.', 'января'),
+              ('февр.', 'февраля'),
+              ('марта', 'матра'),
+              ('апр.', 'апреля'),
+              ('мая', 'мая'),
+              ('июня', 'июня'),
+              ('июля', 'июля'),
+              ('авг.', 'августа'),
+              ('сент.', 'Sept', 'сентября'),
+              ('окт.', 'октября'),
+              ('нояб.', 'ноября'),
+              ('дек.', 'декабря')]
 
 
 def build_url() -> str:
