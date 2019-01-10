@@ -93,6 +93,10 @@ def filter_new_ads(session: Session, ads: Set[AdModel]) -> List[NewAdModel]:
             check_db(db_connect, db_cursor)
             exists_ads = get_exists_ads(db_cursor, sorted([ad.external_id for ad in ads]))
             ads = [ad for ad in ads if ad.external_id not in exists_ads]
+
+            if not ads:
+                logger.info('=== New ads not found ===')
+
             for ad in ads:
                 result.append(fetch_ads_detail(session, ad))
 
